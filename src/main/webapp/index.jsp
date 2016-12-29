@@ -11,21 +11,23 @@ int noteHeight = 10;
 %>
 <html>
 	<body>
-		<svg version="1.1" baseProfile="full" width="100%" height="100%"
+		<svg version="1.1" baseProfile="full" width="100%" height="1000px"
 			xmlns="http://www.w3.org/2000/svg">
 			
 			
 			<%
-			for(int notePitchIter = 0; notePitchIter < 127; notePitchIter++){
-				for(int noteTimeIter = 0; noteTimeIter < 127; noteTimeIter++){
+			for(int noteMidiValue = 0; noteMidiValue < 127; noteMidiValue++){
+				for(int noteTimeValue = 0; noteTimeValue < 127; noteTimeValue++){
 			%> 
 					<rect 
-						x="<%=noteTimeIter * noteWidth%>"
-						y="<%=notePitchIter * keyNoteHeight%>"
+						x="<%=noteTimeValue * noteWidth%>"
+						y="<%=noteMidiValue * keyNoteHeight%>"
 						width="<%=noteWidth%>"
 						height="<%=noteHeight%>" 
 						fill="white" 
 						stroke="black" 
+						data-noteMidiValue="<%=noteMidiValue %>"
+						data-noteTimeValue="<%=noteTimeValue %>"
 					/>
 			<%
 				}
